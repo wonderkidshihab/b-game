@@ -1,0 +1,11 @@
+export 'sign in/sign_inPage.dart';
+export 'profile/profilePage.dart';
+export 'search/searchPage.dart';
+export 'favorites/favoritesPage.dart';
+export 'sign up/sign_upPage.dart';
+export 'home/homePage.dart';
+export 'stocklist/stocklistPage.dart';
+export 'charts/chartsPage.dart';
+export 'about/aboutPage.dart';
+export 'adsconvertandshop/adsconvertandshopPage.dart';
+export 'onboardings/onboardingsPage.dart';
