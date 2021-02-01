@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: "B Game",
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.SIGN_UP,
+      initialRoute: AppRoutes.INITIAL,
       getPages: AppRoutes.pageRoutes,
       theme: ThemeData(
         primaryColor: Colors.blue,

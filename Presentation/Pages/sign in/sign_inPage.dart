@@ -8,6 +8,7 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,58 +21,65 @@ class _SignInPageState extends State<SignInPage> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 35),
-          child: Column(
-            children: [
-              Center(
-                  child: Icon(
-                    Icons.description,
-                    size: 75,
-                    color: Theme.of(context).primaryColor,
-                  )),
-              Text("B Game", style: Theme.of(context).textTheme.headline6),
-              SizedBox(
-                height: 100,
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(15)),
-                child: TextField(
-                  decoration: InputDecoration.collapsed(
-                      hintText: 'Email',
-                      hintStyle: Theme.of(context).textTheme.caption),
+          child: Form(
+            key: _key,
+            child: Column(
+              children: [
+                Center(
+                    child: Icon(
+                      Icons.description,
+                      size: 75,
+                      color: Theme.of(context).primaryColor,
+                    )),
+                Text("B Game", style: Theme.of(context).textTheme.headline6),
+                SizedBox(
+                  height: 100,
                 ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(15)),
-                child: TextField(
-                  decoration: InputDecoration.collapsed(
-                      hintText: 'Password',
-                      hintStyle: Theme.of(context).textTheme.caption),
+                SizedBox(
+                  height: 25,
                 ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: FlatButton(
-                  onPressed: () {},
-                  child: Text("Sign In"),
-                  color: Theme.of(context).accentColor,
+                Container(
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: TextFormField(
+                    decoration: InputDecoration.collapsed(
+                        hintText: 'Email',
+                        hintStyle: Theme.of(context).textTheme.caption),
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(15)),
+                  child: TextFormField(
+                    decoration: InputDecoration.collapsed(
+                        hintText: 'Password',
+                        hintStyle: Theme.of(context).textTheme.caption),
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: FlatButton(
+                    onPressed: () {
+                      if(_key.currentState.validate()){
+                        Get.toNamed(AppRoutes.HOMEPAGE);
+                      }
+                    },
+                    child: Text("Sign In"),
+                    color: Theme.of(context).accentColor,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
